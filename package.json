@@ -1,0 +1,23 @@
+{
+  "name": "bytemonk-federation",
+  "version": "1.0.0",
+  "description": "Bytemonk GraphQL Federation Demo - Netflix-Style Architecture",
+  "scripts": {
+    "install:all": "npm install && cd subgraphs/users && npm install && cd ../movies && npm install && cd ../reviews && npm install",
+    "start:users": "cd subgraphs/users && npm start",
+    "start:movies": "cd subgraphs/movies && npm start",
+    "start:reviews": "cd subgraphs/reviews && npm start",
+    "start:web": "cd web && npm start",
+    "compose": "rover supergraph compose --config ./supergraph.yaml > supergraph.graphql",
+    "router": "node scripts/start-router.js",
+    "dev": "node scripts/start-all.js",
+    "start:win": "powershell -ExecutionPolicy Bypass -File scripts/start-services.ps1"
+  },
+  "keywords": ["graphql", "federation", "apollo", "microservices", "bytemonk"],
+  "author": "Bytemonk",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+

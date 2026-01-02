@@ -1,0 +1,22 @@
+extend schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.7"
+    import: ["@key"]
+  )
+
+type Movie @key(fields: "id") {
+  id: ID!
+  title: String!
+  releaseYear: Int!
+  genre: String!
+  duration: Int!
+  poster: String
+  description: String
+}
+
+type Query {
+  movie(id: ID!): Movie
+  movies: [Movie!]!
+  topMovies(limit: Int = 5): [Movie!]!
+}
+

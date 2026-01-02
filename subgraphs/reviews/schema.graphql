@@ -1,0 +1,41 @@
+extend schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.7"
+    import: ["@key"]
+  )
+
+type User @key(fields: "id") {
+  id: ID!
+  reviews: [Review!]!
+}
+
+type Movie @key(fields: "id") {
+  id: ID!
+  reviews: [Review!]!
+  averageRating: Float
+}
+
+type Review @key(fields: "id") {
+  id: ID!
+  rating: Int!
+  comment: String
+  author: User!
+  movie: Movie!
+  createdAt: String!
+}
+
+type Query {
+  review(id: ID!): Review
+  recentReviews(limit: Int = 10): [Review!]!
+}
+
+type Mutation {
+  createReview(input: CreateReviewInput!): Review!
+}
+
+input CreateReviewInput {
+  movieId: ID!
+  rating: Int!
+  comment: String
+}
+
