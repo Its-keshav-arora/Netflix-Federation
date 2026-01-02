@@ -7,13 +7,13 @@ This project demonstrates GraphQL Federation 2.0 using Apollo Router and three m
 ## 🏗️ Architecture
 
 ```
-┌─────────────┐
-│   Apollo    │
-│   Router    │  (Port 4000)
-└──────┬──────┘
-       │
-   ┌───┴───┬─────────┬──────────┐
-   │       │         │          │
+    ┌─────────────┐
+    │   Apollo    │
+    │   Router    │  (Port 4000)
+    └──────┬──────┘
+           │
+   ┌───────┬─────────┬
+   │       │         │
 ┌──▼───┐ ┌─▼────┐ ┌──▼────┐
 │Users │ │Movies│ │Reviews│
 │ :4001│ │ :4002│ │ :4003 │
@@ -31,7 +31,7 @@ This project demonstrates GraphQL Federation 2.0 using Apollo Router and three m
 
 - **Node.js** 20+ LTS
 - **Apollo Rover CLI**: `npm install -g @apollo/rover`
-- **Apollo Router**: Download from [router.apollo.dev](https://router.apollo.dev/download)
+- **Apollo Router**: Download from [Apollo Router Github](https://github.com/apollographql/router/releases)
 
 ### Installing Apollo Rover CLI
 
@@ -41,15 +41,16 @@ npm install -g @apollo/rover
 
 ### Installing Apollo Router
 
+Download the Apollo Router binary for your platform from [GitHub Releases](https://github.com/apollographql/router/releases).
+
 **Windows:**
-```powershell
-Invoke-WebRequest -Uri "https://router.apollo.dev/download/windows/latest" -OutFile "router.exe"
-```
+- Download `router-windows-x86_64.exe` and rename it to `router.exe`
+- Place it in the project root directory
 
 **Linux/Mac:**
-```bash
-curl -sSL https://router.apollo.dev/download/nix/latest | sh
-```
+- Download the appropriate binary for your platform
+- Make it executable: `chmod +x router`
+- Place it in the project root directory
 
 ## 🚀 Getting Started
 
@@ -75,19 +76,19 @@ Open **4 separate terminals** and start each service:
 ```bash
 npm run start:users
 ```
-Service starts at: http://localhost:4001/graphql
+Service starts at: http://localhost:4001/
 
 **Terminal 2 - Movies Service:**
 ```bash
 npm run start:movies
 ```
-Service starts at: http://localhost:4002/graphql
+Service starts at: http://localhost:4002/
 
 **Terminal 3 - Reviews Service:**
 ```bash
 npm run start:reviews
 ```
-Service starts at: http://localhost:4003/graphql
+Service starts at: http://localhost:4003/
 
 **Terminal 4 - Apollo Router:**
 ```bash
@@ -109,7 +110,7 @@ Each service can be tested independently using Apollo Sandbox (opens automatical
 
 ### Testing Users Service (Port 4001)
 
-Open http://localhost:4001/graphql in your browser.
+Open http://localhost:4001/ in your browser.
 
 **Query all users:**
 ```graphql
@@ -149,7 +150,7 @@ Open http://localhost:4001/graphql in your browser.
 
 ### Testing Movies Service (Port 4002)
 
-Open http://localhost:4002/graphql in your browser.
+Open http://localhost:4002/ in your browser.
 
 **Query all movies:**
 ```graphql
@@ -193,7 +194,7 @@ Open http://localhost:4002/graphql in your browser.
 
 ### Testing Reviews Service (Port 4003)
 
-Open http://localhost:4003/graphql in your browser.
+Open http://localhost:4003/ in your browser.
 
 **Query recent reviews:**
 ```graphql
