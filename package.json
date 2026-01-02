@@ -7,17 +7,10 @@
     "start:users": "cd subgraphs/users && npm start",
     "start:movies": "cd subgraphs/movies && npm start",
     "start:reviews": "cd subgraphs/reviews && npm start",
-    "start:web": "cd web && npm start",
-    "compose": "rover supergraph compose --config ./supergraph.yaml > supergraph.graphql",
-    "router": "node scripts/start-router.js",
-    "dev": "node scripts/start-all.js",
-    "start:win": "powershell -ExecutionPolicy Bypass -File scripts/start-services.ps1"
+    "compose": "rover supergraph compose --config ./supergraph.yaml > supergraph.graphql"
   },
   "keywords": ["graphql", "federation", "apollo", "microservices", "bytemonk"],
   "author": "Bytemonk",
-  "license": "MIT",
-  "devDependencies": {
-    "concurrently": "^8.2.2"
-  }
+  "license": "MIT"
 }
 
